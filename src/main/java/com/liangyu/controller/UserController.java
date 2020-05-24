@@ -32,7 +32,7 @@ public class UserController {
         return userService.insertUser(user);
     }
 
-    public int updateUser(User user) throws Exception {
+    public int updateUser(User user) {
         return userService.updateUser(user);
     }
 

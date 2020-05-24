@@ -11,5 +11,5 @@ public interface IUserService {
 
     int insertUser(User user);
 
-    int updateUser(User user) throws Exception;
+    int updateUser(User user);
 }

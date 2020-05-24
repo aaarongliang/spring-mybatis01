@@ -29,14 +29,9 @@ public class UserServiceImpl implements IUserService {
     }
 
 
-    public int updateUser(User user) throws Exception{
+    public int updateUser(User user){
         int i = mapper.updateUser(user);
-        try{
-            int j = 1/0;
-        }catch (Exception e){
-            throw new Exception();
-        }
-
+        int j = 1/0;
         return i;
     }
 }

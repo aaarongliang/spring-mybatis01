@@ -40,7 +40,7 @@ public class Test01 {
     }
 
     @Test
-    public void test04() throws Exception {
+    public void test04(){
         User user =new User("lala","111111");
         System.out.println(userController.updateUser(user));
     }
