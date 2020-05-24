@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liangyu.mapper.UserMapper">
+    <select id="queryUserList" resultType="com.liangyu.entity.User" flushCache="false" useCache="true">
+        SELECT username,password FROM USER
+    </select>
+
+    <select id="getUserByName" parameterType="java.lang.String" resultType="com.liangyu.entity.User" flushCache="true">
+        SELECT username,password FROM USER
+        where username=#{userName}
+    </select>
+    <insert id="inserUser" parameterType="com.liangyu.entity.User" flushCache="false">
+        insert into user (username,password)values(#{username},#{password})
+    </insert>
+    <update id="updateUser" parameterType="com.liangyu.entity.User">
+        update User set password=#{password} where username=#{username}
+    </update>
+</mapper>
