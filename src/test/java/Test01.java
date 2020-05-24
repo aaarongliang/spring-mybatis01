@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Test01 {
@@ -43,5 +44,24 @@ public class Test01 {
     public void test04(){
         User user =new User("lala","111111");
         System.out.println(userController.updateUser(user));
+    }
+
+    @Test
+    public void test05(){
+        List<User> userList=new ArrayList<>();
+        User user1 = new User("lala","123");
+        User user2 = new User("wawa","123");
+        userList.add(user1);
+        userList.add(user2);
+        System.out.println(userController.updateUserByNames(userList));
+
+    }
+
+    @Test
+    public void test06(){
+        List<String> list = new ArrayList<>();
+        list.add("wawa");
+        list.add("gaga");
+        System.out.println(userController.selectUserByNames(list));
     }
 }

@@ -36,6 +36,14 @@ public class UserController {
         return userService.updateUser(user);
     }
 
+    public int updateUserByNames(List<User> userList){
+        return userService.updateUserByNames(userList);
+    }
+
+    public List<User> selectUserByNames(List<String> list){
+        return userService.selectUserByNames(list);
+    }
+
     public void m1(){
         System.out.println("m1");
     }

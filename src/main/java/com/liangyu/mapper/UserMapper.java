@@ -13,4 +13,8 @@ public interface UserMapper {
     int inserUser(User user);
 
     int updateUser(User user);
+
+    int updateUserByNames(List<User> userList);
+
+    List<User> selectUserByNames(List<String> list);
 }

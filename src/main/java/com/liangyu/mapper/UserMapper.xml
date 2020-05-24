@@ -17,4 +17,19 @@
     <update id="updateUser" parameterType="com.liangyu.entity.User">
         update User set password=#{password} where username=#{username}
     </update>
+
+    <update id="updateUserByNames" parameterType="list">
+        update user set password="123456" where username in
+        <foreach item="item" open="(" separator="," close=")" index="" collection="list">
+            #{item.username}
+        </foreach>
+    </update>
+
+    <select id="selectUserByNames" parameterType="list" resultType="com.liangyu.entity.User">
+        select username,password from user where username in
+        <foreach item="item" open="(" separator="," close=")" index="" collection="list">
+            #{item}
+        </foreach>
+    </select>
+
 </mapper>

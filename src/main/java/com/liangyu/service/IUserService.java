@@ -12,4 +12,8 @@ public interface IUserService {
     int insertUser(User user);
 
     int updateUser(User user);
+
+    int updateUserByNames(List<User> userList);
+
+    List<User> selectUserByNames(List<String> list);
 }

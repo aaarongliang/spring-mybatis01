@@ -34,4 +34,12 @@ public class UserServiceImpl implements IUserService {
         int j = 1/0;
         return i;
     }
+
+    public int updateUserByNames(List<User> userList){
+      return mapper.updateUserByNames(userList);
+    }
+
+    public List<User> selectUserByNames(List<String> list){
+        return mapper.selectUserByNames(list);
+    }
 }
