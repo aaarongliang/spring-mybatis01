@@ -57,5 +57,6 @@
             <tx:method name="*" propagation="SUPPORTS" read-only="true"/>
         </tx:attributes>
     </tx:advice>
+    <!-- 支持注解式事务 -->
     <tx:annotation-driven transaction-manager="txManager" />
 </beans>
