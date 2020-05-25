@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Map;
+
 @Service()
 @Transactional(propagation= Propagation.REQUIRES_NEW,rollbackFor = {ArithmeticException.class,Exception.class})
 public class UserServiceImpl implements IUserService {
@@ -41,5 +43,21 @@ public class UserServiceImpl implements IUserService {
 
     public List<User> selectUserByNames(List<String> list){
         return mapper.selectUserByNames(list);
+    }
+
+    public User selectUserByMap(Map<String, String> map){
+        return mapper.selectUserByMap(map);
+    }
+
+    public int queryCount(){
+        return mapper.queryCount();
+    }
+
+    public List<User> selectUserByPage(Map<String, Object> map){
+        return mapper.selectUserByPage(map);
+    }
+
+    public int insertList(List<User> userList){
+        return mapper.insertList(userList);
     }
 }

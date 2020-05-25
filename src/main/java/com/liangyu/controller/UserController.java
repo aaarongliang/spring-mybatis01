@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -44,6 +45,14 @@ public class UserController {
         return userService.selectUserByNames(list);
     }
 
+    public User selectUserByMap(Map<String,String> map){
+        return userService.selectUserByMap(map);
+    }
+
+    public int queryCount(){
+        return userService.queryCount();
+    }
+
     public void m1(){
         System.out.println("m1");
     }
@@ -54,5 +63,13 @@ public class UserController {
 
     public void m3(){
         System.out.println("m3");
+    }
+
+    public List<User> selectUserByPage(Map<String, Object> map) {
+        return userService.selectUserByPage(map);
+    }
+
+    public int insertList(List<User> userList) {
+        return userService.insertList(userList);
     }
 }

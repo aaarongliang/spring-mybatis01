@@ -6,7 +6,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Test01 {
     ApplicationContext applicationContext;
@@ -63,5 +65,49 @@ public class Test01 {
         list.add("wawa");
         list.add("gaga");
         System.out.println(userController.selectUserByNames(list));
+    }
+
+    @Test
+    public void test07(){
+        Map<String,String> map=new HashMap<>();
+        map.put("username","wawa");
+        map.put("password","123456");
+        System.out.println(userController.selectUserByMap(map));
+    }
+
+    @Test
+    public void test08(){
+        System.out.println(userController.queryCount());
+    }
+
+    @Test
+    public void test09(){
+        int count = userController.queryCount();
+        int pageSize = 4;
+        int size = count/pageSize;
+        int value = count%pageSize;
+        if(value>0){
+            size = size+1;
+        }
+        Map<String,Object> map = new HashMap<>();
+        for (int i = 1; i <= size; i++) {
+            int page=i;
+            int curPage=(page-1)*pageSize;
+            map.put("curPage",curPage);
+            map.put("pageSize",pageSize);
+            List<User> userList = userController.selectUserByPage(map);
+            System.out.println(userList);
+            userController.insertList(userList);
+        }
+    }
+
+    @Test
+    public void insertList(){
+        List<User> userList = new ArrayList<>();
+        User user = new User(19,"iaia","12343");
+        User user2 = new User(20,"iaia","12343");
+        userList.add(user);
+        userList.add(user2);
+        userController.insertList(userList);
     }
 }

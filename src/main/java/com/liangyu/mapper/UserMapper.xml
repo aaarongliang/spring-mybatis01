@@ -32,4 +32,28 @@
         </foreach>
     </select>
 
+    <select id="selectUserByMap" parameterType="java.util.Map" resultType="com.liangyu.entity.User">
+        select username,password from user where username=#{username} and password=#{password}
+    </select>
+
+    <select id="queryCount" resultType="int">
+        select count(*) from user
+    </select>
+
+    <select id="selectUserByPage" parameterType="java.util.Map" resultType="com.liangyu.entity.User">
+        select id,username,password from user order by id asc limit #{curPage},#{pageSize}
+    </select>
+
+    <insert id="insertList" parameterType="java.util.List">
+        insert into user(id,username,password)values
+        <foreach collection="list" item="user" separator=",">
+            (
+            #{user.id,jdbcType=INTEGER},
+            #{user.username,jdbcType=VARCHAR},
+            #{user.password,jdbcType=VARCHAR}
+            )
+        </foreach>
+
+
+    </insert>
 </mapper>
